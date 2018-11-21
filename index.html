@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random Number</title>
+    
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        input {
+            font-family: inherit;
+            font-size: inherit;
+        }
+        
+        #number {
+            flex: 1 1 auto;
+            background: #40a55f;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 200px;
+            cursor: pointer;
+            user-select: none;
+            color: #fff;
+        }
+        
+        main {
+            flex: 0 0 120px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="number">
+        0
+    </div>
+    <main>
+        <span>
+            <input id="min" type="number" value="0">    
+        </span>
+        <span>
+            <input id="max" type="number" value="500">    
+        </span>
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        let max = 0
+        let min = 500
+        $('#number').click(function(e) {
+            let min = parseInt($('#min').val(), 10)
+            let max = parseInt($('#max').val(), 10)
+            console.log(min, max)
+            let num = Math.round(Math.random() * (max - min) + min)
+            $('#number').text(num)
+        })
+    </script>
+</body>
+</html>
